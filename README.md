@@ -2,10 +2,10 @@
 
 Simple webapplication to manage and share presonal wishes
 
-
 ### REQUIREMENTS
 
 * Docker
+* Django Installation
 * PostgreSQL Container / Installation
 
 ### Getting Started
