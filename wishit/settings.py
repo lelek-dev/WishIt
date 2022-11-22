@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'internalAuth.middleware.ProtectedRoutes',
 ]
 
 ROOT_URLCONF = 'wishit.urls'
@@ -156,3 +157,8 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
 APPEND_SLASH = False
+
+LOGIN_REQUIRED_URLS = (
+    r'/wishManagement/(.*)$',
+)
+LOGIN_REQUIRED_URLS_EXCEPTIONS = ()
