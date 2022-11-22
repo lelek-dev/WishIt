@@ -1,0 +1,146 @@
+:root {
+    --color-primary: #efff006b;
+    --color-secondary: #ffffff26;
+    --color-third: #00fff36b;
+}
+
+html, body {
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: url('/static/img/bg2.webp') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+.centerHVflex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-layer {
+    background-color: #000000d1;
+    color: white;
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.nav-link {
+    color: var(--color-primary);
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
+  }
+.nav-link:focus, .nav-link:hover, .nav-link.active {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+.content-box {
+    background-color: var(--color-secondary);
+    transition: all 0.4s ease; 
+    cursor: pointer;
+}
+.index .content-box > * {
+    transition: all 0.4s ease; 
+}
+.index .content-box:hover {
+    background-color: #ffffff46;
+}
+.index .content-box:hover > .details-button {
+    transform: translateZ(0) scale(1.05);
+}
+a > .content-box > * {
+    color: white;
+}
+.content-box .details-button {
+    color: white;
+    font-weight: 600;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px 20px;
+    display: inline-block;
+}
+.content-box .details-button:hover {
+    color: white;   
+    font-weight: 700;
+}
+.content-box .btn-primary, form .btn-primary {
+    background-color: white!important;
+    color: black!important;
+    border: 0px;
+}
+.content-box .btn-delete {
+    background-color: rgb(216, 0, 0)!important;
+    color: white!important;
+    border: 0px;
+}
+.content-box .delete-box {
+    text-align: right;
+}
+.content-box.heading {
+    background-color: var(--color-primary);
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+.content-box.add {
+    background-color: var(--color-third);
+}
+.content-box.edit {
+    background-color: var(--color-third);
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+.content-box .form-control, form .form-control{
+    background-color: #cdcdcd26;
+    color: white;
+}
+.content-box .form-control:focus, form .form-control:focus{
+    background-color: #cdcdcd54;
+    color: white;
+}
+
+
+
+
+
+
+
+/* AUTOFILL */
+input:-webkit-autofill {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+input:-moz-autofill {
+    -moz-text-fill-color: white;
+    -moz-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+input:-o-autofill {
+    -o-text-fill-color: white;
+    -o-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+input:-khtml-autofill {
+    -khtml-text-fill-color: white;
+    -khtml-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+
+input:focus:-webkit-autofill {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+input:focus:-moz-autofill {
+    -moz-text-fill-color: white;
+    -moz-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+input:focus:-o-autofill {
+    -o-text-fill-color: white;
+    -o-box-shadow: 0 0 0px 1000px #000000ad inset;
+}
+input:focus:-khtml-autofill {
+    -khtml-text-fill-color: white;
+    -khtml-box-shadow: 0 0 0px 1000px #000000ad inset;
+}

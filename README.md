@@ -7,12 +7,18 @@ Simple webapplication to manage and share presonal wishes
 * Docker
 * Django Installation
 * PostgreSQL Container / Installation
+  * python manage.py makemigrations
+  * python manage.py migrate
 
 ### Getting Started
 
 1. Create /wishit/.env File and modify content
 2. run "docker-compose build"
 3. run "docker-compose up"
+
+Lokal:
+
+python manage.py runserver
 
 ### Structure
 
