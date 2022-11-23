@@ -4,6 +4,49 @@
 
 {% block content %}
 
-<h1>Site is under construction</h1>
+{% load static %}
+    <div class="col-12 col-sm-12 col-md-6 mt-5 home bubble-bg text-center">
+        <img src="{% static 'img/home/working.webp' %}" alt="WishIt" class="fadein"/>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 mt-5 home text-left centerHVflex flyin">
+        <div>
+            <h2>
+                MANAGE AND SHARE YOUR WISHES
+            </h2>
+            <p>
+                Your tool to create and manage multiple lists with unlimited wishes.            
+                Share lists with friends, families and guests.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="col-12 col-sm-12 col-md-6 mt-3 home text-left centerHVflex fadein">
+        <div>
+            <h2>
+                NO ACCOUNT NECESSARY 
+            </h2>
+            <p>
+                You can share lists with everybody. To access lists there is not even a need to create an account.
+            </p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 mt-3 home bubble-bg text-center fadein">
+        <img src="{% static 'img/home/people.webp' %}" alt="WishIt"/>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 mt-3 home bubble-bg text-center fadein">
+        <img src="{% static 'img/home/event.webp' %}" alt="WishIt"/>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 mt-3 home text-left centerHVflex fadein">
+        <div>
+            <h2>
+                UNLIMITED LISTS AND WISHES
+            </h2>
+            <p>
+                Create multiple lists - for your family, for your birthday, wedding, ...
+            </p>
+        </div>
+    </div>
 
 {% endblock %}

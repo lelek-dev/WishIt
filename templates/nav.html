@@ -19,9 +19,9 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ user.username }}
               </a>
-              <ul class="dropdown-menu  {% if 'externalAuth' in request.path %} active {% endif %}" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu {% if 'accounts' in request.path %} active {% endif %}" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
-                <li><a class="dropdown-item" href="#">Manage Profile</a></li>
+                <li><a class="dropdown-item" href="{%url 'internalAuth:update' %}">Manage Profile</a></li>
               </ul>
             </li>
           {% endif %}
@@ -31,7 +31,7 @@
             <a class="nav-link" href="{% url 'login' %}">
               <button class="btn btn-outline-success" type="button">Log In</button>
             </a>
-            <a class="nav-link" href="{% url 'signup' %}">
+            <a class="nav-link" href="{% url 'internalAuth:signup' %}">
               <button class="btn btn-outline-success" type="button">Sign Up</button>
             </a>     
         {% endif %}

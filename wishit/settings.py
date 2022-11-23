@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'internalAuth.middleware.ProtectedRoutes',
 ]
 
 ROOT_URLCONF = 'wishit.urls'
@@ -97,6 +98,8 @@ DATABASES = {
     }
 }
 
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -156,3 +159,8 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
 APPEND_SLASH = False
+
+LOGIN_REQUIRED_URLS = (
+    r'/wishManagement/(.*)$',
+)
+LOGIN_REQUIRED_URLS_EXCEPTIONS = ()
