@@ -1,3 +1,5 @@
+@import url('fonts/anton.css');
+
 :root {
     --color-primary: #efff006b;
     --color-secondary: #ffffff26;
@@ -107,8 +109,87 @@ a > .content-box > * {
 
 
 
+/* HOME START */
+.home h2 {
+    font-family: Anton;
+    font-size: 60pt;
+}
+.bubble-bg:nth-child(odd) {
+    background: url('../img/home/blob.svg') no-repeat center;
+    padding: 100px 50px;
+}
+.bubble-bg:nth-child(even) {
+    background: url('../img/home/blob2.svg') no-repeat center;
+    padding: 100px 50px;
+}
+.home p {
+    color: var(--color-third);
+    font-size: 13pt;
+} 
+/* HOME END */
 
+/* FLY IN START */
+.flyin {
+    opacity: 0;
+    animation: transform 1s ease-in-out 0.1s forwards;
+}
+@keyframes transform {
+    from {
+        transform: translateZ(0) scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateZ(0) scale(1);
+        opacity: 1;
+    }
+}
+/* FLY IN END */
 
+/* FADE IN START */
+.fadein {
+    margin-top: 30px;
+    margin-bottom: -30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1.5s margin-top ease, 1s opacity ease;
+}
+.fadein.show {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+/* FADE IN END */
+
+/* Parallax STYLES START */
+#parallax {
+    font-family: raleway, sans-serif;
+    min-height: 300px;
+    width: 100%;
+    background-image: url("../img/headphones.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#parallax .container {
+    min-height: inherit;
+}
+
+#parallax .button {
+    background: var(--color-primary);
+    display: inline;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#parallax .button a{
+    color: white;
+    text-decoration: none;
+}
+
+/* Parallax STYLES END */
 
 /* AUTOFILL */
 input:-webkit-autofill {
