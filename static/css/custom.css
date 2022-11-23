@@ -105,6 +105,10 @@ a > .content-box > * {
     background-color: #cdcdcd54;
     color: white;
 }
+.wishit_link a, a.wishit_link {
+    color: var(--color-primary);
+}
+
 
 
 

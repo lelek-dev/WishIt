@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from .models import WishitUser
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
 
 class SignUpView(CreateView):
     form_class = WishitUserCreationForm
@@ -27,6 +29,16 @@ def DeleteView(request):
     user.delete()
     logout(request)
     return HttpResponseRedirect('/')
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'password_reset/password_reset.html'
+    email_template_name = 'password_reset/password_reset_email.html'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = reverse_lazy('home')
+
 
 # Helper Function
 def send_400():
