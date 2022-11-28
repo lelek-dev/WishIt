@@ -14,4 +14,5 @@ urlpatterns = [
     path('wish/create/<int:pkWishlist>', views.CreateViewWish, name='createWish'),
     path('wish/update/<int:pkWish>', views.UpdateViewWish, name='updateWish'),
     path('wish/delete/<int:pkWish>', views.DeleteViewWish, name='deleteWish'),
+    path('wishlist/share/<uuid:uuidWishlist>', views.ShareViewWishlist, name='share'),
 ]
