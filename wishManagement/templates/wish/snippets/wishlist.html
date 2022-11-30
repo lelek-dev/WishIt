@@ -1,13 +1,12 @@
-<div class="col-10 wishlist m-0 my-1 p-0">        
+<div class="col-10 wishlist m-0 mt-1 p-0">        
     <a href="{%url 'wishlist:indexWish' wishlist.id %}" class=" m-0 p-0">
         <div class="text-center content-box heading mx-0 py-4">        
             <h3>{{ wishlist.title }}</h3>
-            <p>{{ wishlist.description }}</p>
-            <p>http://localhost:8000/wishManagement/wishlist/share/{{ wishlist.uuid}}</p>       
+            <p>{{ wishlist.description }}</p>      
         </div>
     </a>
 </div>
-<div class="col-2 m-0 my-1 p-0">
+<div class="col-2 m-0 mt-1 p-0">
     <a href="{%url 'wishlist:update' wishlist.id %}" class="m-0 p-0 h-100 w-100">
         <div class="content-box text-center edit  mx-0 py-4 h-100 w-100 centerHVflex">            
             <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="white" class="bi bi-pencil-fill" viewBox="0 0 16 16">
@@ -15,4 +14,8 @@
             </svg>
         </div>
     </a>
+</div>
+<div class="share_link success centerHVflex bg-success">COPIED LINK TO CLIPBOARD</div>
+<div class="col-12 m-0 mb-3 p-2 share_link centerHVflex content-box">
+    <p class="m-0 p-0" data-link="{{ request.get_host }}/wishManagement/wishlist/share/{{ wishlist.uuid}}">Get Share Link</p>
 </div>

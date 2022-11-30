@@ -79,6 +79,20 @@ $(function(){
         }
     });
 
+    $(".content-box.share_link").click(function(){
+        let value = $(".content-box.share_link p").data('link');
+        var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val(value).select();
+          document.execCommand("copy");
+          $temp.remove();
+
+        $(".share_link.success:not('show')").addClass('show');
+        setTimeout(function(){
+            $(".share_link.success.show").removeClass('show');
+        }, 1000)
+    })
+
     // initial calls
     fadeIn()
     if ($("#offers")){

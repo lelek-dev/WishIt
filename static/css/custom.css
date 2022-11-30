@@ -88,14 +88,32 @@ a > .content-box > * {
 }
 .content-box.heading {
     background-color: var(--color-primary);
-    border-radius: 0.25rem 0 0 0.25rem;
+    border-radius: 0.25rem 0 0 0;
 }
 .content-box.add {
     background-color: var(--color-third);
 }
 .content-box.edit {
     background-color: var(--color-third);
-    border-radius: 0 0.25rem 0.25rem 0;
+    border-radius: 0 0.25rem 0 0;
+}
+.content-box.share_link {
+    background-color: var(--color-secondary);
+    border-radius: 0 0 0.25rem 0.25rem;
+    cursor: grab;
+}
+.share_link.success {
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    height: 7%;
+    top: -7%;
+    font-size: 15pt;
+    transition: all 0.5s ease;
+}
+.share_link.success.show {
+    top: 0px;
 }
 .content-box .form-control, form .form-control{
     background-color: #cdcdcd26;
