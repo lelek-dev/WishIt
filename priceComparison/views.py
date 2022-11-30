@@ -30,7 +30,7 @@ def getOffersView(request):
 def searchproduct(input):
     input = "site:https://www.idealo.de/preisvergleich/OffersOfProduct " + input
     urls = []
-    for url in search(input,stop = 3, pause = 0.1):
+    for url in search(input,stop = 5, pause = 0.1):
         urls.append(url)
     return urls
 

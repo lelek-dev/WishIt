@@ -47,15 +47,20 @@ a:active { text-decoration: none; }
 .content-box {
     background-color: var(--color-secondary);
     transition: all 0.4s ease; 
+}
+a .content-box {
     cursor: pointer;
+}
+.index.done {
+    color: gray;
 }
 .index .content-box > * {
     transition: all 0.4s ease; 
 }
-.index .content-box:hover {
+.index:not(.done) .content-box:hover {
     background-color: #ffffff46;
 }
-.index .content-box:hover > .details-button {
+.index:not(.done) .content-box:hover > .details-button {
     transform: translateZ(0) scale(1.05);
 }
 a > .content-box > * {
