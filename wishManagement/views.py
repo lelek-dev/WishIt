@@ -40,6 +40,8 @@ def CreateViewWishlist(request):
 
 def UpdateViewWishlist(request, pk):
     wishlist = get_object_or_404(Wishlist, pk=pk)
+    if wishlist.owner != request.user:
+        send_400()
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -109,7 +111,7 @@ def UpdateViewWish(request, pkWish):
             return HttpResponseRedirect(reverse('wishlist:indexWish', args=[wish.wishlist.pk]))
     else:
         form = WishForm(instance=wish)
-    return render(request, 'wish/update.html', {'form': form, 'id': wish.id, 'wishlist': wish.wishlist})
+    return render(request, 'wish/update.html', {'form': form, 'wish': wish, 'wishlist': wish.wishlist})
 
 def DeleteViewWish(request, pkWish):
     wish = get_object_or_404(Wish, pk=pkWish)

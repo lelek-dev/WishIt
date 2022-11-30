@@ -229,3 +229,15 @@ input:focus:-khtml-autofill {
     -khtml-text-fill-color: white;
     -khtml-box-shadow: 0 0 0px 1000px #000000ad inset;
 }
+
+/* OFFERS START */
+#offers {
+    background-color: #047a7e2e;
+}
+#offers a {
+    color: #dee2e7;
+}
+#offers a:hover {
+    color: #bdc2c9;
+}
+/* OFFERS END */

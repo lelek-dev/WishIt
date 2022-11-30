@@ -1,3 +1,4 @@
 wishit/.env
 *.pyc
 sent_emails/*
+.google-cookie
