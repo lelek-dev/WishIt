@@ -22,7 +22,6 @@ urlpatterns = [
     path("accounts/", include("internalAuth.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('internalAuth/', include('internalAuth.urls')),
     path('externalAuth/', include('externalAuth.urls')),
     path('wishManagement/', include('wishManagement.urls')),
     path('priceComparison/', include('priceComparison.urls')),

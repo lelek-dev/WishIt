@@ -4,10 +4,13 @@
 
 {% include 'wish/snippets/wishlist.html' with wishlist=wishlist %}
 
-    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+    <div class="col-12 text-center">
         <h2>Update an existing wish</h2>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-9 col-lg-6 col-xl-6">
         <div class="rounded content-box m-1 p-5">  
-            <form action="{% url 'wishlist:updateWish' id %}" method="post">
+            <form action="{% url 'wishlist:updateWish' wish.id %}" method="post">
                 {% csrf_token %}
                 {{ form }}
 
@@ -16,7 +19,7 @@
                 <input class="btn btn-primary mt-3" type="submit" value="Submit">
             </form>
             <div class="delete-box">
-                <a href="{% url 'wishlist:deleteWish' id %}">
+                <a href="{% url 'wishlist:deleteWish' wish.id %}">
                     <button class="btn btn-delete">
                         DELETE
                     </button>
@@ -24,5 +27,18 @@
             </div>
         </div>
     </div>
+    {% if not wish.product == None %}
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-3 rounded p-5 m-2" id="offers" data-url="{{ wish.product }}">        
+            <p>
+                <b>Best offers:</b><br>
+                Buy <span class="title"></span> for 
+                <ul>
+
+                </ul>
+            </p>
+        </div>
+    {% endif %}
+    <datalist id="products">
+    </datalist>
     
 {% endblock %}
