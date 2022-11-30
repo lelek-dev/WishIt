@@ -2,7 +2,8 @@
     <a href="{%url 'wishlist:indexWish' wishlist.id %}" class=" m-0 p-0">
         <div class="text-center content-box heading mx-0 py-4">        
             <h3>{{ wishlist.title }}</h3>
-            <p>{{ wishlist.description }}</p>       
+            <p>{{ wishlist.description }}</p>
+            <p>http://localhost:8000/wishManagement/wishlist/share/{{ wishlist.uuid}}</p>       
         </div>
     </a>
 </div>

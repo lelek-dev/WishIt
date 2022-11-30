@@ -1,4 +1,4 @@
-from .models import Wishlist, Wish
+from .models import Wishlist, Wish, userConnectWishlist
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import WishForm, WishlistForm
@@ -69,7 +69,8 @@ def DeleteViewWishlist(request, pk):
 def IndexViewWish(request, pkWishlist):
     wishlist = get_object_or_404(Wishlist, pk=pkWishlist)
     if wishlist.owner != request.user:
-        send_400()
+        if not userConnectWishlist.objects.filter(user_id = request.user, wishlist_id = pkWishlist).exists():
+            return send_400()
     wishes = Wish.objects.filter(wishlist=wishlist.id)
     return render(request, 'wish/index.html', {'wishlist': wishlist, 'wishes': wishes})
 
@@ -116,6 +117,13 @@ def DeleteViewWish(request, pkWish):
         wish.delete()
         return HttpResponseRedirect(reverse('wishlist:indexWish', args=[wish.wishlist.pk]))          
     return send_400()
+
+def ShareViewWishlist(request, uuidWishlist):
+    wishlist = get_object_or_404(Wishlist, uuid = uuidWishlist)
+    if not wishlist.owner == request.user:
+        userConnectVar = userConnectWishlist(user_id = request.user, wishlist_id = wishlist)
+        userConnectVar.save()
+    return HttpResponseRedirect(reverse('wishlist:indexWish', args=[wishlist.pk])) 
 
 # Helper Function
 def send_400():
