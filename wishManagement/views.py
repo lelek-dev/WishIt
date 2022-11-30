@@ -120,10 +120,11 @@ def DeleteViewWish(request, pkWish):
 
 def ShareViewWishlist(request, uuidWishlist):
     wishlist = get_object_or_404(Wishlist, uuid = uuidWishlist)
-    userConnectVar = userConnectWishlist(user_id = request.user, wishlist_id = wishlist)
-    userConnectVar.save()
+    if not wishlist.owner == request.user:
+        userConnectVar = userConnectWishlist(user_id = request.user, wishlist_id = wishlist)
+        userConnectVar.save()
     return HttpResponseRedirect(reverse('wishlist:indexWish', args=[wishlist.pk])) 
-    
+
 # Helper Function
 def send_400():
     response = HttpResponse()
