@@ -23,6 +23,8 @@ class Wish(models.Model):
     updated = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.title
+    def marked(self):
+        return WishMarks.objects.filter(wish_id=self.pk).exists()
 
 class userConnectWishlist(models.Model):
     title = models.CharField(max_length = 50)
@@ -34,3 +36,10 @@ class userConnectWishlist(models.Model):
     def __str__(self):
         return self.title
 
+class WishMarks(models.Model):
+    wish_id = models.ForeignKey(Wish, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(WishitUser, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.wish_id
