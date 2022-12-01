@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'internalAuth',
     'wishManagement',
     'priceComparison',
-    'wishit'
+    'wishit',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -97,6 +100,7 @@ DATABASES = {
         'PORT': env("DATABASE_PORT"),
     }
 }
+SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
@@ -120,6 +124,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+SOCIAL_AUTH_TRAILING_SLASH=False
+SOCIAL_AUTH_AUTH0_DOMAIN = env("AUTH0_DOMAIN")
+SOCIAL_AUTH_AUTH0_KEY = env("AUTH0_CLIENT_ID")
+SOCIAL_AUTH_AUTH0_SECRET = env("AUTH0_CLIENT_SECRET")
+
+SOCIAL_AUTH_AUTH0_SCOPE=[
+    'openid',
+    'profile',
+    'email'
+]
+AUTHENTICATION_BACKENDS={
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+}
+SOCIAL_AUTH_URL_NAMESPACE = 'externalAuth'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
