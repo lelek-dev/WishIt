@@ -12,6 +12,8 @@ class Wishlist(models.Model):
     updated = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.title
+    def viewers(self):
+        return userConnectWishlist.objects.filter(wishlist_id=self.pk).exists()
 
 class Wish(models.Model):
     title = models.CharField(max_length=50)

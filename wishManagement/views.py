@@ -98,9 +98,10 @@ def DeleteViewWish(request, pkWish):
 def ShareViewWishlist(request, uuidWishlist):
     wishlist = get_object_or_404(Wishlist, uuid = uuidWishlist)
     if not wishlist.owner == request.user:
-        userConnectVar = userConnectWishlist(user_id = request.user, wishlist_id = wishlist)
-        userConnectVar.save()
-    return HttpResponseRedirect(reverse('wishlist:indexWish', args=[wishlist.pk])) 
+        if not userConnectWishlist.objects.filter(user_id = request.user, wishlist_id = wishlist).exists():
+            userConnectVar = userConnectWishlist(user_id = request.user, wishlist_id = wishlist)
+            userConnectVar.save()
+    return HttpResponseRedirect(reverse('wishlist:detailShareWishlist', args=[wishlist.pk])) 
 
 def IndexViewShared(request):
     shared_list = userConnectWishlist.objects.values_list('wishlist_id', flat=True).filter(user_id = request.user)

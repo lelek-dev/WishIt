@@ -10,6 +10,9 @@
 
     <div class="col-12 col-sm-12 col-md-9 col-lg-6 col-xl-6">
         <div class="rounded content-box m-1 p-5">  
+            {% if wishlist.viewers %}
+                <small class="d-block p-1 text-center">List is shared with other users!</small>
+            {% endif %}
             <form action="{% url 'wishlist:updateWish' wish.id %}" method="post">
                 {% csrf_token %}
                 {{ form }}
