@@ -5,7 +5,7 @@ import json
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 
-def getTypesView(request, search):
+def getTypesView(search):
     if len(search) > 4:
         urls = searchproduct(search)
         data=[]
@@ -22,8 +22,8 @@ def getTypesView(request, search):
 def getOffersView(request):
     if request.method == 'POST':
         url = request.POST.get("url", "")
-        print(url)
-        offers = getoffers(url)
+        if validate(url):
+            offers = getoffers(url)
         return JsonResponse(offers, safe=False)
     return HttpResponseBadRequest
 
@@ -69,3 +69,6 @@ def gettitle(url):
     soup = getsoup(url)
     title = soup.title.string.rsplit("ab", 1)[0]
     return title
+
+def validate(url):
+    return url.startswith("https://www.idealo.de")

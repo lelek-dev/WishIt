@@ -97,7 +97,7 @@ def DeleteViewWish(request, pkWish):
 # Share
 def ShareViewWishlist(request, uuidWishlist):
     wishlist = get_object_or_404(Wishlist, uuid = uuidWishlist)
-    if not wishlist.owner == request.user:
+    if wishlist.owner != request.user:
         if not userConnectWishlist.objects.filter(user_id = request.user, wishlist_id = wishlist).exists():
             userConnectVar = userConnectWishlist(user_id = request.user, wishlist_id = wishlist)
             userConnectVar.save()

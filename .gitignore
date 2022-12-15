@@ -3,3 +3,5 @@ wishit/.env
 sent_emails/*
 .google-cookie
 */migrations/*
+.scannerwork
+sonar-project.properties
