@@ -4,6 +4,7 @@ import requests
 import json
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
+from urllib.parse import urlparse
 
 def getTypesView(search):
     if len(search) > 4:
@@ -71,4 +72,5 @@ def gettitle(url):
     return title
 
 def validate(url):
-    return url.startswith("https://www.idealo.de")
+    obj = urlparse(url)
+    return obj.hostname in ('idealo.de')
