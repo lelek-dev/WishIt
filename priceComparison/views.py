@@ -23,8 +23,7 @@ def getTypesView(search):
 def getOffersView(request):
     if request.method == 'POST':
         url = request.POST.get("url", "")
-        if validate(url):
-            offers = getoffers(url)
+        offers = getoffers(validate(url))
         return JsonResponse(offers, safe=False)
     return HttpResponseBadRequest
 
@@ -73,4 +72,5 @@ def gettitle(url):
 
 def validate(url):
     obj = urlparse(url)
-    return obj.hostname in ('idealo.de')
+    if obj.hostname in ('idealo.de'):
+        return url
